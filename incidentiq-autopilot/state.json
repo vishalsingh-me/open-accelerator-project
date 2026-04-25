@@ -1,0 +1,10 @@
+{
+  "payment-service": {
+    "mode": "chaos",
+    "pending_approval": false
+  },
+  "order-service": {
+    "mode": "normal",
+    "pending_approval": false
+  }
+}

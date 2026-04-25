@@ -1,0 +1,3 @@
+2026-04-25T09:12:20Z order-service ERROR CrashLoopBackOff restarting failed container
+2026-04-25T09:12:22Z order-service WARN Probe failed on /healthz
+2026-04-25T09:12:30Z order-service ERROR ExitCode=1 restartCount=8

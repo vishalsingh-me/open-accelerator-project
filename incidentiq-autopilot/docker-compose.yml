@@ -1,0 +1,30 @@
+services:
+  payment-service:
+    image: nginx:alpine
+    container_name: payment-service
+    ports:
+      - "8081:80"
+
+  order-service:
+    image: nginx:alpine
+    container_name: order-service
+    ports:
+      - "8082:80"
+
+  incidentiq-agent:
+    build: .
+    container_name: incidentiq-agent
+    environment:
+      - VLLM_BASE_URL=${VLLM_BASE_URL:-http://localhost:8000/v1}
+      - VLLM_MODEL=${VLLM_MODEL:-}
+      - VLLM_API_KEY=${VLLM_API_KEY:-}
+      - MONITOR_INTERVAL=${MONITOR_INTERVAL:-3}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./state.json:/app/state.json
+      - ./scenarios:/app/scenarios
+    depends_on:
+      - payment-service
+      - order-service

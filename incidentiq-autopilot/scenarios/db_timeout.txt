@@ -1,0 +1,3 @@
+2026-04-25T09:30:10Z payment-service ERROR database connection timeout after 5000ms
+2026-04-25T09:30:12Z payment-service WARN retry budget exhausted
+2026-04-25T09:30:16Z payment-service ERROR downstream checkout unavailable
