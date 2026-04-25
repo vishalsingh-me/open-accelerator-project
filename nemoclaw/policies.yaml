@@ -1,0 +1,24 @@
+tier1_actions:
+  - restart_pod
+  - retry_request
+  - clear_cache
+  - reload_config
+
+tier2_actions:
+  - scale_deployment
+  - modify_limits
+  - change_config
+  - drain_node
+
+blocked_actions:
+  - delete_namespace
+  - drop_database
+  - remove_firewall_rule
+
+auto_approve_severity:
+  - low
+  - medium
+
+require_human_severity:
+  - high
+  - critical

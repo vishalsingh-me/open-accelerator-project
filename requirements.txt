@@ -1,0 +1,9 @@
+openai
+python-dotenv
+docker
+rich
+typer
+google-generativeai
+pyyaml
+asyncio
+aiohttp
