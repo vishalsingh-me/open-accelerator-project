@@ -1,0 +1,19 @@
+Namespace: production
+Deployment: checkout-service
+Pod: checkout-service-74c6f77d9b-vx2dp
+Container: checkout
+Node: ip-10-0-2-12
+Image: registry.example.com/checkout/checkout-service:v9.9.9
+
+kubectl describe pod checkout-service-74c6f77d9b-vx2dp
+Status: Pending
+Reason: ImagePullBackOff
+Restart Count: 0
+
+Events:
+  Normal   Pulling     kubelet  Pulling image "registry.example.com/checkout/checkout-service:v9.9.9"
+  Warning  Failed      kubelet  Failed to pull image "registry.example.com/checkout/checkout-service:v9.9.9": manifest unknown: not found
+  Warning  Failed      kubelet  Error: ErrImagePull
+  Warning  BackOff     kubelet  Back-off pulling image "registry.example.com/checkout/checkout-service:v9.9.9"
+  Warning  Failed      kubelet  Error: ImagePullBackOff
+

@@ -1,0 +1,29 @@
+Namespace: production
+Deployment: api-service
+Pod: api-service
+Container: api
+Node: ip-10-0-8-21
+Image: registry.example.com/payments/api-service:v1.8.2
+Port: 8080
+
+kubectl describe pod api-service
+State:          Terminated
+Reason:         OOMKilled
+Exit Code:      137
+Started:        Sat, 25 Apr 2026 13:04:22 -0400
+Finished:       Sat, 25 Apr 2026 13:05:19 -0400
+Restart Count:  7
+
+Limits:
+  memory: 512Mi
+Requests:
+  memory: 256Mi
+
+Last metrics:
+  memory usage: 498Mi
+  memory limit: 512Mi
+
+Events:
+  Warning  BackOff  kubelet  Back-off restarting failed container api in pod api-service
+  Warning  OOMKilling  kernel  Memory cgroup out of memory: Killed process 4812 (python)
+

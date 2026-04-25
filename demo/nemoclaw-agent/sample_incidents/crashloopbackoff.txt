@@ -1,0 +1,23 @@
+Namespace: production
+Deployment: worker-service
+Pod: worker-service-5f56d9c4c4-w9qtr
+Container: worker
+Node: ip-10-0-5-18
+Image: registry.example.com/jobs/worker-service:v2.3.1
+
+kubectl get pod worker-service-5f56d9c4c4-w9qtr
+READY   STATUS             RESTARTS   AGE
+0/1     CrashLoopBackOff   4          12m
+
+kubectl describe pod worker-service-5f56d9c4c4-w9qtr
+State:          Waiting
+Reason:         CrashLoopBackOff
+Last State:     Terminated
+Reason:         Error
+Exit Code:      1
+Restart Count:  4
+
+Logs:
+  ValueError: missing DATABASE_URL
+  Back-off restarting failed container worker in pod worker-service-5f56d9c4c4-w9qtr
+

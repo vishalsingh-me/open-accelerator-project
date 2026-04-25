@@ -1,0 +1,20 @@
+Namespace: production
+Deployment: web-gateway
+Pod: web-gateway-67dd7f4c7c-l8m2k
+Container: gateway
+Node: ip-10-0-1-44
+Port: 8080
+
+Ingress alert:
+  route=/api/orders
+  status=503
+  message="503 Service Unavailable"
+
+kubectl describe pod web-gateway-67dd7f4c7c-l8m2k
+Readiness probe failed: HTTP probe failed with statuscode: 503
+Liveness probe passed
+Restart Count: 1
+
+Events:
+  Warning Unhealthy kubelet Readiness probe failed: Get "http://10.42.1.33:8080/healthz": dial tcp 10.42.1.33:8080: connect: connection refused
+

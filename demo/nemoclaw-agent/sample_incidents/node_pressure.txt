@@ -1,0 +1,19 @@
+Cluster: production-east
+Node: ip-10-0-9-31
+
+kubectl describe node ip-10-0-9-31
+Conditions:
+  Type              Status  Reason
+  MemoryPressure    True    KubeletHasInsufficientMemory
+  DiskPressure      True    KubeletHasDiskPressure
+  PIDPressure       False   KubeletHasSufficientPID
+
+Events:
+  Warning  EvictionThresholdMet  kubelet  Attempting to reclaim memory
+  Warning  FreeDiskSpaceFailed   kubelet  failed to garbage collect required amount of images
+  Warning  Evicted               kubelet  Pod analytics-worker-7c48f was evicted due to node pressure
+
+Affected workloads:
+  Pod: analytics-worker-7c48f
+  Pod: batch-loader-62c1d
+
